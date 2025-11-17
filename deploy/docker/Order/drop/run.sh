@@ -1,10 +1,10 @@
 #!/bin/bash
+echo "INICIANDO SCRIPT run.sh..."
+echo "Esperando 20 segundos a que el servicio 'mongo' arranque..."
 
-while ! curl http://mongo:27017/
-do
-  echo "$(date) - still trying"
-  sleep 1
-done
-echo "$(date) - connected successfully"
+sleep 20
 
-java -jar ordering-*.jar
+echo "Supongo que mongo ya esta listo. Lanzando Java..."
+java -jar /usr/local/app/ordering-*.jar
+
+echo "EL SCRIPT TERMINO (si ves esto, java fallo)"
